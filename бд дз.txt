@@ -1,0 +1,58 @@
+однотабличные запросы
+1) 
+select name, surname, score from s
+where s.score >=3 and s.score <=4
+2)
+select name, numb_group from s
+where numb_group between 2000 and 3000
+
+select name, numb_group from s
+where numb_group like '2%'
+3)
+select * from s
+where to_char(date_birth,'cc')=20
+4)
+select * from s
+where to_char(date_birth,'mm')=20
+5)
+select * from s
+where to_char(sysdate,'mm')=20
+6)
+select name, numb_group from s
+order by numb_group
+7)
+select name, surname, numb_group from s
+order by numb_group, surname
+8)
+select name, score from s
+where score >=4
+order by score desc
+9)
+select * from 
+ (select name, score from s
+  where  score >=4 
+  order by score desc)
+where rownum <= 5
+
+
+
+многоабличный запрос
+
+select * from s
+inner join student_hobbies 
+on s.id = student_hobbies.id_stud
+
+
+
+//
+select * from s
+left join student_hobbies
+on s.id = student_hobbies.id_stud
+
+select * from s
+right join student_hobbies
+on s.id = student_hobbies.id_stud
+
+select * from s
+full join student_hobbies
+on s.id = student_hobbies.id_stud
